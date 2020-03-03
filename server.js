@@ -2,8 +2,11 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const path = require("path");
+const mongojs = require("mongojs");
+require("dotenv").config()
 
-const PORT = 3000;
+const PORT = process.env.PORT || 1234;
 
 const app = express();
 
@@ -14,15 +17,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-
-mongoose.connect("mongodb://localhost/budget", {
+const MONGODB_URI = `mongodb://${process.DB_USER}:${process.DB_PASSWORD}@ds211259.mlab.com:11259/heroku_3zbwvbpc`
+console.log(MONGODB_URI)
+//Connect to database.
+//"mongodb://localhost/BudgetTrackers"
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 
 // routes
 app.use(require("./routes/api.js"));
 
+//Set up Mongo database.
+const databaseUrl = process.env.MONGODB_URI || "budget";
+const collections = ["budget"];
+
+//Set reference to the database 
+const db = mongojs(databaseUrl, collections);
+
+//Throws and error if error occurs 
+db.on("error", error => {
+  console.log("Database Error:", error);
+})
+
+
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  console.log(`Application running on PORT ${PORT}`);
 });
