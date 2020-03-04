@@ -17,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-const MONGODB_URI = `mongodb://${process.DB_USER}:${process.DB_PASSWORD}@ds211259.mlab.com:11259/heroku_3zbwvbpc`
+//mongodb://<dbuser>:<dbpassword>@ds211259.mlab.com:11259/heroku_3zbwvbpc
+const MONGODB_URI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds211259.mlab.com:11259/heroku_3zbwvbpc`
 console.log(MONGODB_URI)
 //Connect to database.
 //"mongodb://localhost/BudgetTrackers"
