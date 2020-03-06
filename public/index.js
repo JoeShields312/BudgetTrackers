@@ -1,3 +1,11 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").then(reg => {
+      console.log("We found your service worker file!", reg);
+    });
+  });
+}
+
 let transactions = [];
 let myChart;
 
@@ -144,6 +152,7 @@ function sendTransaction(isAdding) {
   });
 }
 
+
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
 };
@@ -151,3 +160,4 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
