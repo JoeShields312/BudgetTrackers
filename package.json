@@ -29,15 +29,21 @@
   "homepage": "https://github.com/JShields30/BudgetTrackers#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "bl": "^4.1.0",
     "compression": "^1.7.4",
+    "dot-prop": "^6.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "http-proxy": "^1.18.1",
     "lite-server": "^2.5.4",
     "mongojs": "^3.1.0",
     "mongoose": "^5.9.3",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",
+    "object-path": "^0.11.5",
     "path": "^0.12.7",
-    "pwa": "^1.9.7"
+    "pwa": "^1.9.7",
+    "sync-exec": "^0.6.2",
+    "y18n": "^5.0.5"
   }
 }
