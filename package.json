@@ -44,7 +44,7 @@
     "morgan": "^1.9.1",
     "mquery": "^3.2.5",
     "nodemon": "^2.0.2",
-    "object-path": "^0.11.5",
+    "object-path": "^0.11.8",
     "path": "^0.12.7",
     "pwa": "^1.9.7",
     "socket.io": "^4.0.0",
