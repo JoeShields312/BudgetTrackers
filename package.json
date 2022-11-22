@@ -47,7 +47,7 @@
     "object-path": "^0.11.5",
     "path": "^0.12.7",
     "pwa": "^1.9.7",
-    "socket.io": "^4.0.0",
+    "socket.io": "^4.5.3",
     "sync-exec": "^0.6.2",
     "y18n": "^5.0.5",
     "yargs-parser": "^20.2.7"
